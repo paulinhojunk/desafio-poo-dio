@@ -1,4 +1,6 @@
+import br.com.dio.desafio.dominio.Bootcamp;
 import br.com.dio.desafio.dominio.Curso;
+import br.com.dio.desafio.dominio.Dev;
 import br.com.dio.desafio.dominio.Mentoria;
 
 import java.time.LocalDate;
@@ -25,9 +27,44 @@ public class Main {
         mentoria1.setDescricao("Mentoria Oracle Java");
         mentoria1.setData(LocalDate.now());
 
-        System.out.println(curso1);
+        Bootcamp bootcamp = new Bootcamp();
+        bootcamp.setNome("Bootcamp Java");
+        bootcamp.setDescricao("Bootcamp Java");
+        bootcamp.getConteudos().add(curso1);
+        bootcamp.getConteudos().add(curso2);
+        bootcamp.getConteudos().add(mentoria1);
+
+        Dev dev1 = new Dev();
+        dev1.setNome("Paulo");
+        dev1.inscreverBootcamp(bootcamp);
+        System.out.println("---------------------------------");
+        System.out.println("Os conteudos incritos por Paulo: " + dev1.getConteudosInscritos());
+        dev1.progredir();
+        dev1.progredir();
+        System.out.println("---------------------------------");
+        System.out.println("Os conteudos inscritos por Paulo: " + dev1.getConteudosInscritos());
+        System.out.println("Os conteudos concluidos por Paulo: "+ dev1.getConteudoConcluidos());
+        System.out.println("XP: " + dev1.calcularTotalXp());
+
+        Dev dev2 = new Dev();
+        dev2.setNome("Maria");
+        dev2.inscreverBootcamp(bootcamp);
+        System.out.println("---------------------------------");
+        System.out.println("Os conteudos incritos por Maria: " +dev2.getConteudosInscritos());
+        dev2.progredir();
+        dev2.progredir();
+        dev2.progredir();
+
+        System.out.println("---------------------------------");
+        System.out.println("Os conteudos inscritos por Maria: " + dev2.getConteudosInscritos());
+        System.out.println("Os conteudos concluidos por Maria: "+ dev2.getConteudoConcluidos());
+        System.out.println("XP: " + dev2.calcularTotalXp());
+
+
+
+/*        System.out.println(curso1);
         System.out.println(curso2);
-        System.out.println(mentoria1);
+        System.out.println(mentoria1);*/
 
     }
 }
